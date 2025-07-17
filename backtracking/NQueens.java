@@ -26,7 +26,7 @@ public static boolean isSafe(char board[][] , int row  , int col ){
      }   
 
     }
-
+ 
 
     return true;
 }

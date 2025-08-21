@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class TreeTraversal{
@@ -97,10 +99,42 @@ public class TreeTraversal{
       }
     }
 
+    }
 
 
+     public static List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> result = new ArrayList<>();
+        
+        if (root == null) {
+            return result; 
+        }
+
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+
+        while (!q.isEmpty()) {
+            int levelSize = q.size(); 
+            List<Integer> level = new ArrayList<>();
+
+            for (int i = 0; i < levelSize; i++) {
+                Node currNode = q.remove();
+                level.add(currNode.data);
+
+                if (currNode.left != null) {
+                    q.add(currNode.left);
+                }
+                if (currNode.right != null) {
+                    q.add(currNode.right);
+                }
+            }
+
+            result.add(level); 
+        }
+
+        return result;
 
     }
+
 
     public static void main(String[] args){
        int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1}; 
@@ -118,5 +152,6 @@ public class TreeTraversal{
        System.out.println();
        System.out.println("level order");
        tree.levelOrder(root);
+       
     }
 }

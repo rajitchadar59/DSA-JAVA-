@@ -42,20 +42,24 @@ public class MaxSegmentTreeQueries {
         return getmaxUtil(0, 0, n - 1, qi, qj);
     }
 
-    public static void updateUtil(int i, int si, int sj, int idx, int newVAl) {
-        if (idx < si || idx > sj) {
+     public static void updateUtil(int i, int si, int sj, int idx, int newVal) {
+        if (idx < si || idx > sj) return;
+
+        if (si == sj) { 
+            tree[i] = newVal;
             return;
         }
 
-        tree[i] = Math.max(tree[i], newVAl);
+        int mid = (si + sj) / 2;
 
-        if (si != sj) {
-
-            int mid = (si + sj) / 2;
-            updateUtil(2 * i + 1, si, mid, idx, newVAl);
-            updateUtil(2 * i + 2, mid + 1, sj, idx, newVAl);
-
+        if (idx <= mid) {
+            updateUtil(2 * i + 1, si, mid, idx, newVal);
+        } else {
+            updateUtil(2 * i + 2, mid + 1, sj, idx, newVal);
         }
+
+        
+        tree[i] = Math.max(tree[2 * i + 1], tree[2 * i + 2]);
     }
 
     public static void update(int arr[], int idx, int newVal) {

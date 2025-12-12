@@ -22,7 +22,7 @@ public class Query {
     }
 
     public static int getSumUtil(int i ,int si , int sj , int qi , int qj){
-        if(qj <= si || qi >= sj ){ // non overlaping 
+        if(qj < si || qi > sj ){ // non overlaping 
             return 0;
         }
         else if( si >= qi && sj <= qj){ // complete overlab

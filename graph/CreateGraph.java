@@ -42,7 +42,7 @@ public  class CreateGraph{
 
      graph[0].add(new Edge(0,1,5));
 
-     graph[1].add(new Edge(1,2,5));
+     graph[1].add(new Edge(1,0,5));
      graph[1].add(new Edge(1,2,1));
      graph[1].add(new Edge(1,3,3));
      

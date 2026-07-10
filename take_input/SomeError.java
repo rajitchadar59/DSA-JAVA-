@@ -4,7 +4,7 @@ public class SomeError{
     public static void main(String[] args) {
 
       /* int ke baad String input karate hai to issue aati hi hai 
-      kyonki int ke baad hum enter kar dete hai to bo kahli soace 
+      kyonki int ke baad hum enter kar dete hai to compiler  kahli space 
       ko string man leta hai or number ke sath khali space print karba deta hai */
 
       Scanner sc = new Scanner(System.in);
